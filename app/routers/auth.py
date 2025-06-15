@@ -3,10 +3,14 @@ from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
 from passlib.context import CryptContext
+
+# Importaciones de tu proyecto
 from ..database import SessionLocal
 from ..models import Usuario
 from ..schemas import UserCreate, UserOut, Token
 from ..auth.jwt_handler import create_access_token
+# =====> IMPORTACIÓN CORREGIDA AQUÍ <=====
+from ..auth.auth import get_current_user
 
 router = APIRouter(prefix="/auth", tags=["Auth"])
 
